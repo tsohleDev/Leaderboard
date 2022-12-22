@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<script defer src="main.1523067c7d5cba059905.js"></script></head>
+<script defer src="main.d00b7f88c99e2faacb33.js"></script></head>
 <body>
     <main>
     <h1>LeaderBoard</h1>
@@ -13,19 +13,20 @@
     <section id="scores">
         <h4>Recent scores</h4>
         <button id="refresh">Refresh</button>
-        <ul id="list">
-            <li>Name1: 200</li>
-            <li id="two">Name2: 100</li>
-            <li>Name3: 0</li>
-        </ul>
+        <div id="container">
+            <ul id="list"></ul>
+            <div class="loader"></div>
+        </div>
     </section>
 
     <section id="form">
         <h3>Add your score</h3>
+        <img src="./modules/bird.jpg" alt="">
         <form action="" method="post">
+            
             <input type="text" placeholder="Your name" name="name" id="name">   
             <input type="text" placeholder="Your score" name="score" id="score">
-            <input type="button" value="Submit">
+            <input type="button" value="Submit" id="submit">
         </form>
     </section>
     </main>

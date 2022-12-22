@@ -20,7 +20,6 @@ class APi {
     );
 
     const json = await response.json();
-
     return json.result;
   }
 
