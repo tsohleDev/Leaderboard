@@ -1,4 +1,4 @@
-import one from "../../images/dummy avatars/one.jpg";
+import one from '../../images/dummy avatars/one.jpg';
 
 class ListHTML {
   constructor(api) {
@@ -26,7 +26,6 @@ class ListHTML {
     this.score.value = string;
   }
 
-
   async reLoad() {
     this.listItems.forEach((element) => { element.style.display = 'none'; });
     this.loader.style.display = 'block';
@@ -35,45 +34,38 @@ class ListHTML {
     if (!list.length) { return; }
 
     this.#removeAllChildNodes();
-    console.log(list);
 
-    list.forEach((element, index) => {
+    list.forEach((element) => {
       const { user, score } = element;
-      
-      const path = "../images/dummy avatars/"
-      const picture = {
-        1:'one.jpg'
-      }
-      this.#addScore(user, score, '');
-      
+
+      this.#addScore(user, score);
     });
 
     this.loader.style.display = 'none';
     this.listItems.forEach((element) => { element.style.display = 'block'; });
   }
 
-  #addScore(name, score, url) {
-    
+  #addScore(name, score) {
     const li = document.createElement('li');
-    const img = document.createElement('img')
-    img.src = one
-    const nameTag = document.createElement('pre')
-    nameTag.innerHTML = name
-    const scoreTag = document.createElement('pre')
-    scoreTag.innerHTML = score
-    li.appendChild(img)
-    li.appendChild(nameTag)
-    li.appendChild(scoreTag)
+    const img = document.createElement('img');
+    img.src = one;
+    const nameTag = document.createElement('pre');
+    nameTag.innerHTML = name;
+    const scoreTag = document.createElement('pre');
+    scoreTag.innerHTML = score;
+    li.appendChild(img);
+    li.appendChild(nameTag);
+    li.appendChild(scoreTag);
     li.setAttribute('id', 'li');
 
     this.node.appendChild(li);
   }
 
     #removeAllChildNodes() {
-      while (this.node.firstChild) {
-        this.node.removeChild(this.node.firstChild);
-      }
+    while (this.node.firstChild) {
+      this.node.removeChild(this.node.firstChild);
     }
+  }
 }
 
 export default ListHTML;
