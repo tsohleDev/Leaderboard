@@ -4,14 +4,24 @@ class ListHTML {
     this.node = document.querySelector('#list');
     this.loader = document.querySelector('.loader');
     this.listItems = document.querySelectorAll('#list');
-    this.gamer = {
-      name: document.querySelector('#name').value,
-      score: document.querySelector('#score').value,
-    };
+    this.name = document.querySelector('#name');
+    this.score = document.querySelector('#score');
 
     document.querySelector('#refresh').addEventListener('click', () => {
       this.reLoad();
     });
+  }
+
+  get gamer() {
+    return {
+      name: this.name.value,
+      score: this.score.value,
+    };
+  }
+
+  set gamer(string) {
+    this.name.value = string;
+    this.score.value = string;
   }
 
   async reLoad() {

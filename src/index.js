@@ -8,4 +8,5 @@ const listNode = new ListHTML(api);
 document.querySelector('#submit').addEventListener('click', () => {
   const { name, score } = listNode.gamer;
   api.addScore(name, score);
+  listNode.gamer = null;
 });
