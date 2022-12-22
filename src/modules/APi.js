@@ -20,7 +20,6 @@ class APi {
     );
 
     const json = await response.json();
-
     return json.result;
   }
 
@@ -40,7 +39,7 @@ class APi {
     );
 
     const json = await response.json();
-
+    
     if (json.result !== 'Leaderboard score created correctly.') {
       throw new Error('could not add ');
     }

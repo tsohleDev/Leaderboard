@@ -1,3 +1,5 @@
+import one from "../../images/dummy avatars/one.jpg";
+
 class ListHTML {
   constructor(api) {
     this.api = api;
@@ -24,6 +26,7 @@ class ListHTML {
     this.score.value = string;
   }
 
+
   async reLoad() {
     this.listItems.forEach((element) => { element.style.display = 'none'; });
     this.loader.style.display = 'block';
@@ -32,19 +35,35 @@ class ListHTML {
     if (!list.length) { return; }
 
     this.#removeAllChildNodes();
+    console.log(list);
 
-    list.forEach((element) => {
+    list.forEach((element, index) => {
       const { user, score } = element;
-      this.#addScore(user, score);
+      
+      const path = "../images/dummy avatars/"
+      const picture = {
+        1:'one.jpg'
+      }
+      this.#addScore(user, score, '');
+      
     });
 
     this.loader.style.display = 'none';
     this.listItems.forEach((element) => { element.style.display = 'block'; });
   }
 
-    #addScore(name, score) {
+  #addScore(name, score, url) {
+    
     const li = document.createElement('li');
-    li.innerHTML = `${name}:  ${score}`;
+    const img = document.createElement('img')
+    img.src = one
+    const nameTag = document.createElement('pre')
+    nameTag.innerHTML = name
+    const scoreTag = document.createElement('pre')
+    scoreTag.innerHTML = score
+    li.appendChild(img)
+    li.appendChild(nameTag)
+    li.appendChild(scoreTag)
     li.setAttribute('id', 'li');
 
     this.node.appendChild(li);
