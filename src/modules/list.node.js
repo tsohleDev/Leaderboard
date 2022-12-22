@@ -1,3 +1,5 @@
+import one from '../../images/dummy avatars/one.jpg';
+
 class ListHTML {
   constructor(api) {
     this.api = api;
@@ -35,6 +37,7 @@ class ListHTML {
 
     list.forEach((element) => {
       const { user, score } = element;
+
       this.#addScore(user, score);
     });
 
@@ -42,19 +45,27 @@ class ListHTML {
     this.listItems.forEach((element) => { element.style.display = 'block'; });
   }
 
-    #addScore(name, score) {
+  #addScore(name, score) {
     const li = document.createElement('li');
-    li.innerHTML = `${name}:  ${score}`;
+    const img = document.createElement('img');
+    img.src = one;
+    const nameTag = document.createElement('pre');
+    nameTag.innerHTML = name;
+    const scoreTag = document.createElement('pre');
+    scoreTag.innerHTML = score;
+    li.appendChild(img);
+    li.appendChild(nameTag);
+    li.appendChild(scoreTag);
     li.setAttribute('id', 'li');
 
     this.node.appendChild(li);
   }
 
     #removeAllChildNodes() {
-      while (this.node.firstChild) {
-        this.node.removeChild(this.node.firstChild);
-      }
+    while (this.node.firstChild) {
+      this.node.removeChild(this.node.firstChild);
     }
+  }
 }
 
 export default ListHTML;
