@@ -1,10 +1,15 @@
-$red : #ff0;
+$secondary : rgb(154, 234, 207);
+$tertiary : #5f4b1c;
 
 @mixin grid-layout($rows, $columns) {
   display: grid;
   grid-template-columns: repeat($columns, auto);
   grid-template-columns: repeat($rows, auto);
   margin: 2vh 2vw;
+}
+
+body {
+  background-color: palevioletred
 }
 
 main {
@@ -15,11 +20,28 @@ main {
   }
 }
 
+h1 {
+  color: $secondary;
+} 
+
+h2 {
+  color: yellow;
+}
+
+pre {
+  color: $tertiary;
+}
+
 #scores {
   @include grid-layout(2, 2);
 
   button {
     height: 5vh;
+    width: 25vw;
+    align-self: center;
+    justify-self: center;
+    background-color: $secondary;
+    color: $tertiary;
   }
 
   #two {
@@ -53,14 +75,41 @@ main {
 
   li {
     padding: 0;
-    height: 3vh;
+    height: 5vh;
     list-style: none;
+    
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    height: 10vh;
+    font-size: 3vw;
+    margin: 2vh 0;
+    padding: 0 5vw;
+    background-color: $secondary;
+  }
+
+  img {
+    height: 13vh;
+    // width: 10vw;
   }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+#form{
+  display: block;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    background-color: $secondary;
+    color: $tertiary;
+    font-weight: 800;
+    border: 0;
+    box-shadow: 3px 3px yellow;
+    height: 5vh;
+    margin: 1vh 2vw;
+  }
 }
 
 /* Safari */
@@ -72,4 +121,47 @@ form {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 768px){
+  main {
+    display: block;
+  }
+
+  #scores {
+    div {
+      padding: 2vh 5vw;
+      border: 0;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      height: 13vh;
+      font-size: 6vw;
+      margin: 2vh 0;
+      padding: 0 5vw;
+      background-color: $secondary;
+    }
+
+    pre {
+      align-self: center;
+      font-size: 6vw;
+      margin: 2vh 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #form {
+    input {
+      margin: 1vh 0;
+    }
+  }
+
+  pre {
+    align-self: center;
+    font-size: 3vw;
+    margin: 0;
+  }
 }
